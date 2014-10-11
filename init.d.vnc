@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    'start')
+        sleep 30
+        su -c "/usr/bin/tightvncserver" vagrant
+        ;;
+
+    'stop')
+        su -c "/usr/bin/tightvncserver -kill :1" vagrant
+        ;;
+
+    *)
+        echo "Usage: /etc/init.d/vnc {start|stop}"
+        exit 1
+        ;;
+esac
+
+exit 0
